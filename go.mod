@@ -1,4 +1,4 @@
-module github.com/wmnsk/go-gtp
+module github.com/EMnify/go-gtp
 
 go 1.16
 
