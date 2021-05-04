@@ -470,7 +470,7 @@ func (f *UserLocationInformationFields) UnmarshalBinary(b []byte) error {
 		offset += 6
 	}
 	if has8thBit(f.Flags) {
-		if l < offset+7 {
+		if l < offset+6 {
 			return io.ErrUnexpectedEOF
 		}
 
