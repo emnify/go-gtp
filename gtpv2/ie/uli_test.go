@@ -85,7 +85,7 @@ func TestNewUserLocationInformationStruct(t *testing.T) {
 		}
 
 		// ECGI
-		if uliFields.ECGI.ECI != 0x66666666 {
+		if uliFields.ECGI.ECI != 0x6666666 {
 			t.Errorf("wrong uliFields.ECGI.ECI, got: 0x%x", uliFields.ECGI.ECI)
 		}
 		if uliFields.ECGI.PLMN.MCC != "123" {
@@ -107,7 +107,7 @@ func TestNewUserLocationInformationStruct(t *testing.T) {
 		}
 
 		// MENBI
-		if uliFields.MENBI.MENBI != 0x11111111 {
+		if uliFields.MENBI.MENBI != 0x111111 {
 			t.Errorf("wrong uliFields.MENBI.MENBI, got: 0x%x", uliFields.MENBI.MENBI)
 		}
 		if uliFields.MENBI.PLMN.MCC != "123" {
@@ -118,7 +118,7 @@ func TestNewUserLocationInformationStruct(t *testing.T) {
 		}
 
 		// EMENBI
-		if uliFields.EMENBI.EMENBI != 0x22222222 {
+		if uliFields.EMENBI.EMENBI != 0x222222 {
 			t.Errorf("wrong uliFields.EMENBI.EMENBI, got: 0x%x", uliFields.EMENBI.EMENBI)
 		}
 		if uliFields.EMENBI.PLMN.MCC != "123" {
