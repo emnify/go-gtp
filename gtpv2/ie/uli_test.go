@@ -9,7 +9,7 @@ import (
 )
 
 func TestNewUserLocationInformationStruct(t *testing.T) {
-	t.Run("Test", func(t *testing.T) {
+	t.Run("TestNewUserLocationInformationStruct", func(t *testing.T) {
 		uli := NewUserLocationInformationStruct(
 			NewCGI("123", "45", 0x1111, 0x2222),
 			NewSAI("123", "45", 0x1111, 0x3333),
