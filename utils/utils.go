@@ -130,13 +130,8 @@ func DecodeMCC(b []byte) string {
 
 // DecodePLMN decodes BCD-encoded bytes into MCC and MNC.
 func DecodePLMN(b []byte) (mcc, mnc string, err error) {
-	raw := hex.EncodeToString(b)
-	mcc = string(raw[1]) + string(raw[0]) + string(raw[3])
-	mnc = string(raw[5]) + string(raw[4])
-	if string(raw[2]) != "f" {
-		mnc += string(raw[2])
-	}
-
+	mcc = DecodeMCC(b[0:2])
+	mnc = DecodeMNC(b[1:3])
 	return
 }
 
