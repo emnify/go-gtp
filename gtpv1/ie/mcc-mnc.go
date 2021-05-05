@@ -17,12 +17,12 @@ func (i *IE) MCC() (string, error) {
 		if len(i.Payload) < 2 {
 			return "", io.ErrUnexpectedEOF
 		}
-		return utils.SwappedBytesToStr(i.Payload[0:2], false), nil
+		return utils.DecodeMCC(i.Payload[0:2]), nil
 	case UserLocationInformation:
 		if len(i.Payload) < 3 {
 			return "", io.ErrUnexpectedEOF
 		}
-		return utils.SwappedBytesToStr(i.Payload[1:3], false), nil
+		return utils.DecodeMCC(i.Payload[1:3]), nil
 	default:
 		return "", &InvalidTypeError{Type: i.Type}
 	}
@@ -42,12 +42,12 @@ func (i *IE) MNC() (string, error) {
 		if len(i.Payload) < 2 {
 			return "", io.ErrUnexpectedEOF
 		}
-		return utils.SwappedBytesToStr(i.Payload[1:2], true), nil
+		return utils.DecodeMNC(i.Payload[1:3]), nil
 	case UserLocationInformation:
 		if len(i.Payload) < 3 {
 			return "", io.ErrUnexpectedEOF
 		}
-		return utils.SwappedBytesToStr(i.Payload[2:3], true), nil
+		return utils.DecodeMNC(i.Payload[2:4]), nil
 	default:
 		return "", &InvalidTypeError{Type: i.Type}
 	}

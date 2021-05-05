@@ -28,7 +28,7 @@ func TestRouteingAreaIdentity(t *testing.T) {
 		}
 
 		mnc := ie.MustMNC()
-		if mcc != "45" {
+		if mnc != "45" {
 			t.Errorf("wrong mnc, got %v", mnc)
 		}
 

@@ -112,6 +112,22 @@ func EncodePLMN(mcc, mnc string) ([]byte, error) {
 	return b, nil
 }
 
+// DecodeMCC decodes BCD encoded MCC as it occurs in CGI/SAI/RAI.
+func DecodeMNC(b []byte) string {
+	raw := hex.EncodeToString(b)
+	if raw[0] == 'f' {
+		return string([]byte{raw[3], raw[2]})
+	} else {
+		return string([]byte{raw[3], raw[2], raw[0]})
+	}
+}
+
+// DecodeMNC decodes BCD encoded MNC as it occurs in CGI/SAI/RAI
+func DecodeMCC(b []byte) string {
+	raw := hex.EncodeToString(b)
+	return string([]byte{raw[1], raw[0], raw[3]})
+}
+
 // DecodePLMN decodes BCD-encoded bytes into MCC and MNC.
 func DecodePLMN(b []byte) (mcc, mnc string, err error) {
 	raw := hex.EncodeToString(b)
